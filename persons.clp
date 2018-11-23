@@ -12,6 +12,16 @@
 	(slot restore)        ; забыл зачем это поле
 )
 
+(deftemplate question-user 
+	(slot question)
+	(multislot answers)
+)
+
+(deftemplate answer-user
+	(slot question)
+	(slot answer)
+)
+
 ; Собственно экземпляр факта ioproxy
 (deffacts proxy-fact
 	(ioproxy
@@ -30,6 +40,19 @@
 	(retract ?clear-msg-flg)
 	(printout t "Messages cleared ..." crlf)	
 )
+
+
+(defrule parse-output
+	(declare (salience 100))
+	?proxy <- (ioproxy (value ?v)  (fact-id ?fid) )
+	?answ  <- (answer-user (question ?q)  )
+	(test (eq ?fid (fact-index ?answ) ) )
+	=>
+	(modify ?proxy (answers) (value) (fact-id) )
+	(modify ?answ (answer ?v))
+	(printout t "Output parsed ..." crlf)	
+)
+
 
 (defrule set-output-and-halt
 	(declare (salience 99))
@@ -73,15 +96,22 @@
 	(retract ?current-message)
 )
 
-; это правило не работает - исправить (тут нужна печать списка)
-(defrule print-messages
+
+
+
+(defrule ask-question
 	(declare (salience 99))
-	?proxy <- (ioproxy (messages ?msg-list))
-	?update-key <- (updated True)
+	?current-question <- (question-user  (question ?q) (answers $?qvars ))
+	?proxy <- (ioproxy (messages $?msg-list))
 	=>
-	(retract ?update-key)
-	(printout t "Messages received : " ?msg-list crlf)
+	(bind ?f (assert (answer-user (question ?q) )))
+    (bind ?i (fact-index ?f))	
+	(modify ?proxy (fact-id ?i) (messages $?msg-list ?new-qst)  (answers $?qvars))
+	(retract ?current-question)
+	(printout t "Question asked : " ?q " ... halting ..." crlf)
+	(halt)
 )
+
 
 
 
