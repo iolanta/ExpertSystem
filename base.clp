@@ -22,6 +22,9 @@
 	(slot answer)
 )
 
+
+
+
 ; Собственно экземпляр факта ioproxy
 (deffacts proxy-fact
 	(ioproxy
@@ -100,11 +103,11 @@
 
 
 (defrule ask-question
-	(declare (salience 99))
+	(declare (salience -100))
 	?current-question <- (question-user  (question ?q) (answers $?qvars ))
 	?proxy <- (ioproxy (messages $?msg-list))
 	=>
-	(bind ?f (assert (answer-user (question ?q) )))
+	(bind ?f (assert (answer-user (question ?q) (answer) )))
     (bind ?i (fact-index ?f))	
 	(modify ?proxy (fact-id ?i) (messages $?msg-list ?new-qst)  (answers $?qvars))
 	(retract ?current-question)
@@ -114,52 +117,3 @@
 
 
 
-
-
-;======================================================================================
-(deftemplate person 
-	(slot name) 
-	(slot eyes)
-	(slot age)
-	(slot hair)
-)
-
-(defrule greeting
-   =>
-   (printout t "Hello! " crlf)
-)
-
-(deffacts some-of-candidates
-	(person (name Джон) (eyes Black) (age 30) (hair Black))
-	(person (name Jane) (eyes Violet) (age 20) (hair Red))
-	(person (name Джек) (eyes Green) (age 27) (hair Red))
-	(person (name Jennifer) (eyes Brown) (age 50) (hair Brown))
-)
-
-(defrule complex-eye-hair-match 
-	(declare (salience 40))
-	?p1 <- (person (name ?name1) 
-		(eyes ?eyes1)
-		(age ?age1&:(< ?age1 30))
-		(hair ?hair1)
-	) 
-	?p2 <-	(person (name ?name2&~?name1) 
-		(eyes ?eyes2&~eyes1) 
-		(age ?age2)
-		(hair ?hair2&red|?hair1)
-	)
-	(test (< (abs (- ?age1 ?age2)) 10))
-	;(test (< (fact-index ?p1) (fact-index ?p2)))
-	=> 
-	(printout t "----------------------" crlf) 
-	(printout t "  " ?name1 " has " ?eyes1 " eyes and " ?hair1 " hair." crlf) 
-	(printout t "  " ?name2 " has " ?eyes2 " eyes and " ?hair2 " hair." crlf)
-	(assert (appendmessagehalt (str-cat "У нас есть пара! " ?name1 " и " ?name2)))
-        ;(assert (appendmessagehalt "У нас есть пара!"))
-)
-
-(defrule match-pair-for-user 
-	(declare (salience 10))
-	=> 
-	(assert (sendmessagehalt "Вам пары не досталось, но вы там держитесь!"))
-) 

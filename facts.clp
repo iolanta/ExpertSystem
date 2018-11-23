@@ -18,6 +18,7 @@
 	(fact (id f17) (name "Часто выходит из дома."))
 	(fact (id f18) (name "Целеустремлённый."))
 	(fact (id f19) (name "Избегает конфликтов."))
+	(fact (id f20) (name "Возраст больше 18 лет."))
 )
   
 (deffacts support_facts
@@ -62,4 +63,9 @@
 	(terminal_fact (id t12) (name "Клоун Красти"))
 	(terminal_fact (id t13) (name "Сеймур Скиннер"))
 	(terminal_fact (id t14) (name "Ральф Виггам"))
+)
+
+
+(deffacts questions
+	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
 )

@@ -8,6 +8,8 @@
 	(slot name)
 )
 
+
+
 ; f18 = f20
 ; f19 = not f15
 ; f20 = f18
@@ -344,3 +346,22 @@
 	=>
 	(assert (terminal_fact (id t14) (name "Ральф Виггам")))
 )
+
+(defrule isOver18
+	?answ  <- (answer-user (question "Возраст меньше 18 лет?") (answer ?a))
+	(not (fact (id f20)))	
+	(not (fact (id f15)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f15) (name "Возраст меньше 18 лет."))  ))
+	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Возраст больше 18 лет.")) ))
+)
+
+(defrule FoundTerminal
+	(declare (salience 100))
+	?term <- (terminal_fact (id ?id) (name ?nm))
+	=>
+	(assert (sendmessagehalt ?id ))
+)
+
+
+
