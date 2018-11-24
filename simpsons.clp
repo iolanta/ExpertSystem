@@ -542,7 +542,7 @@
 
 
 (defrule FoundTerminal
-	(declare (salience 200))
+	(declare (salience 400))
 	?term <- (terminal_fact (id ?id) (name ?nm))
 	=>
 	(assert (question-user (question (str-cat "Это " ?nm "?" )  ) (answers "Да" "Нет")))
