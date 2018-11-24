@@ -62,9 +62,14 @@ namespace ClipsFormsExample
                 }
                 Dialog df = new Dialog(question, answers);
                 df.ShowDialog(this);
+
+                clips.Eval("(modify ioproxy (value \"" + answers[answer_index] + "\" ))");
             }
 
+
+
             clips.Eval("(assert (clearmessage))");
+            
         }
 
     private void nextBtn_Click(object sender, EventArgs e)

@@ -363,5 +363,8 @@
 	(assert (sendmessagehalt ?id ))
 )
 
+(deffacts questions
+	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
+)
 
 

@@ -29,7 +29,7 @@
 (deffacts proxy-fact
 	(ioproxy
 		(fact-id 0112) ; это поле пока что не задействовано
-		(value none)   ; значение пустое
+		(value NONE)   ; значение пустое
 		(messages)     ; мультислот messages изначально пуст
 	)
 )
@@ -39,7 +39,7 @@
 	?clear-msg-flg <- (clearmessage)
 	?proxy <- (ioproxy)
 	=>
-	(modify ?proxy (messages))
+	(modify ?proxy (messages) )
 	(retract ?clear-msg-flg)
 	(printout t "Messages cleared ..." crlf)	
 )
@@ -50,8 +50,10 @@
 	?proxy <- (ioproxy (value ?v)  (fact-id ?fid) )
 	?answ  <- (answer-user (question ?q)  )
 	(test (eq ?fid (fact-index ?answ) ) )
+	(test (not (eq ?v NONE )))
+	(test (not (eq ?fid NONE )))
 	=>
-	(modify ?proxy (answers) (value) (fact-id) )
+	(modify ?proxy (answers) (value NONE) (fact-id NONE) )
 	(modify ?answ (answer ?v))
 	(printout t "Output parsed ..." crlf)	
 )
@@ -107,9 +109,9 @@
 	?current-question <- (question-user  (question ?q) (answers $?qvars ))
 	?proxy <- (ioproxy (messages $?msg-list))
 	=>
-	(bind ?f (assert (answer-user (question ?q) (answer) )))
+	(bind ?f (assert (answer-user (question ?q)  )))
     (bind ?i (fact-index ?f))	
-	(modify ?proxy (fact-id ?i) (messages $?msg-list ?new-qst)  (answers $?qvars))
+	(modify ?proxy (fact-id ?i) (messages $?msg-list ?q)  (answers $?qvars))
 	(retract ?current-question)
 	(printout t "Question asked : " ?q " ... halting ..." crlf)
 	(halt)
