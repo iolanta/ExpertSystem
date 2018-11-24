@@ -523,15 +523,53 @@
 	(if (eq ?a "Да") then (assert (fact (id f19) (name "Избегает конфликтов."))  ))
 )
 
+(defrule IsTerminalAnswer
+	?answ  <- (answer-user (answer ?a))
+	?flag <- (possible-term-found  ?nm )
+=>
+	(retract ?flag)
+	(if (eq ?a "Да") then (assert (result-achieved ?nm) )  )
+)
+
+
+(defrule IsResult
+	(declare (salience 300))
+	?res <- (result-achieved ?nm)
+	=>
+	(assert (sendmessagehalt (str-cat "Вывод окончен, результат: " ?nm)))
+	
+)
+
+
 (defrule FoundTerminal
-	(declare (salience 100))
+	(declare (salience 200))
 	?term <- (terminal_fact (id ?id) (name ?nm))
 	=>
-	(assert (sendmessagehalt ?id ))
+	(assert (question-user (question (str-cat "Это " ?nm "?" )  ) (answers "Да" "Нет")))
+	(assert (forcequestion))
+	(assert (possible-term-found  ?nm) )
 )
 
 (deffacts questions
 	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
+	(question-user (question "Смотрит на всех свысока?") (answers "Да" "Нет"))
+	(question-user (question "Проблемы в семье?") (answers "Да" "Нет"))
+	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))
+	(question-user (question "Отталкивающий человек?") (answers "Да" "Нет"))
+	(question-user (question "Заботится о внешнем виде?") (answers "Да" "Нет"))
+	(question-user (question "Часто попадает в неприятности?") (answers "Да" "Нет"))
+	(question-user (question "Имеет постоянное хобби?") (answers "Да" "Нет"))
+	(question-user (question "Есть дети?") (answers "Да" "Нет"))
+	(question-user (question "Делает вид, что понимает, чем занимается?") (answers "Да" "Нет"))
+	(question-user (question "Любит свою семью?") (answers "Да" "Нет"))
+	(question-user (question "Любит проводить время на кухне?") (answers "Да" "Нет"))
+	(question-user (question "Не заботится о своём здоровье?") (answers "Да" "Нет"))
+	(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))
+	(question-user (question "Смеется над людьми?") (answers "Да" "Нет"))
+	(question-user (question "Любит читать?") (answers "Да" "Нет"))
+	(question-user (question "Часто выходит из дома?") (answers "Да" "Нет"))
+	(question-user (question "Целеустремлённый?") (answers "Да" "Нет"))
+	(question-user (question "Избегает конфликтов?") (answers "Да" "Нет"))
 )
 
 

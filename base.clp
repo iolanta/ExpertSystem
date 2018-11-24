@@ -22,7 +22,10 @@
 	(slot answer)
 )
 
-
+(deffunction write-answer 
+	(?answ)
+	(do-for-all-facts ((?f ioproxy)) (> 2 1) (modify ?f (value ?answ))  )
+) 
 
 
 ; Собственно экземпляр факта ioproxy
@@ -101,6 +104,20 @@
 	(retract ?current-message)
 )
 
+(defrule ask-question-force
+	(declare (salience 400))
+	?current-question <- (question-user  (question ?q) (answers $?qvars ))
+	?proxy <- (ioproxy (messages $?msg-list))
+	?flag <-(forcequestion)
+	=>
+	(bind ?f (assert (answer-user (question ?q)  )))
+    (bind ?i (fact-index ?f))	
+	(modify ?proxy (fact-id ?i) (messages $?msg-list ?q)  (answers $?qvars))
+	(retract ?current-question)
+	(retract ?flag)
+	(printout t "Question asked : " ?q " ... halting ..." crlf)
+	(halt)
+)
 
 
 

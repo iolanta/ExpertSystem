@@ -32,7 +32,7 @@ namespace ClipsFormsExample
         private void HandleResponse()
         {
             //  Вытаскиаваем факт из ЭС
-            String evalStr = "(find-fact ((?f ioproxy)) TRUE)";
+            string evalStr = "(find-fact ((?f ioproxy)) TRUE)";
             FactAddressValue fv = (FactAddressValue)((MultifieldValue)clips.Eval(evalStr))[0];
 
             MultifieldValue damf = (MultifieldValue)fv["messages"];
@@ -58,12 +58,13 @@ namespace ClipsFormsExample
                 for (int i = 0; i < vamf.Count; i++) 
                 {
                     LexemeValue va = (LexemeValue)vamf[i];
-                    answers.Add(va.Value + System.Environment.NewLine);
+                    bytes = Encoding.Default.GetBytes(va.Value);
+                    answers.Add(Encoding.UTF8.GetString(bytes));
                 }
                 Dialog df = new Dialog(question, answers);
                 df.ShowDialog(this);
 
-                clips.Eval("(modify ioproxy (value \"" + answers[answer_index] + "\" ))");
+                clips.Eval("(write-answer \"" + answers[answer_index] + "\" )");
             }
 
 
@@ -84,9 +85,9 @@ namespace ClipsFormsExample
         //  Здесь сохранение в файл, и потом инициализация через него
         clips.Clear();
       
-     /* string stroka = codeBox.Text;
-      System.IO.File.WriteAllText("tmp.clp", codeBox.Text);
-      clips.Load("tmp.clp");*/
+        //string stroka = codeBox.Text;
+       // System.IO.File.WriteAllText("base.clp", codeBox.Text);
+        clips.Load("base.clp");
 
         //  Так тоже можно - без промежуточного вывода в файл
         clips.LoadFromString(codeBox.Text);
