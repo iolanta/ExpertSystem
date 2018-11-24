@@ -14,11 +14,13 @@
 	(fact (id f13) (name "Готов поверить в любую чушь."))
 	(fact (id f14) (name "Смеется над людьми."))
 	(fact (id f15) (name "Возраст меньше 18 лет."))
-	(fact (id f16) (name "Любит читать. "))
+	(fact (id f16) (name "Любит читать."))
 	(fact (id f17) (name "Часто выходит из дома."))
 	(fact (id f18) (name "Целеустремлённый."))
 	(fact (id f19) (name "Избегает конфликтов."))
-	(fact (id f20) (name "Возраст больше 18 лет."))
+	(fact (id f20) (name "Не часто выходит из дома."))
+	(fact (id f21) (name "Возраст старше 18 лет."))
+	
 )
   
 (deffacts support_facts
@@ -68,4 +70,22 @@
 
 (deffacts questions
 	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
+	(question-user (question "Смотрит на всех свысока?") (answers "Да" "Нет"))
+	(question-user (question "Проблемы в семье?") (answers "Да" "Нет"))
+	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))
+	(question-user (question "Отталкивающий человек?") (answers "Да" "Нет"))
+	(question-user (question "Заботится о внешнем виде?") (answers "Да" "Нет"))
+	(question-user (question "Часто попадает в неприятности?") (answers "Да" "Нет"))
+	(question-user (question "Имеет постоянное хобби?") (answers "Да" "Нет"))
+	(question-user (question "Есть дети?") (answers "Да" "Нет"))
+	(question-user (question "Делает вид, что понимает, чем занимается?") (answers "Да" "Нет"))
+	(question-user (question "Любит свою семью?") (answers "Да" "Нет"))
+	(question-user (question "Любит проводить время на кухне?") (answers "Да" "Нет"))
+	(question-user (question "Не заботится о своём здоровье?") (answers "Да" "Нет"))
+	(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))
+	(question-user (question "Смеется над людьми?") (answers "Да" "Нет"))
+	(question-user (question "Любит читать?") (answers "Да" "Нет"))
+	(question-user (question "Часто выходит из дома?") (answers "Да" "Нет"))
+	(question-user (question "Целеустремлённый?") (answers "Да" "Нет"))
+	(question-user (question "Избегает конфликтов?") (answers "Да" "Нет"))
 )

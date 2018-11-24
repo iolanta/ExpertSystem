@@ -8,33 +8,31 @@
 	(slot name)
 )
 
-
-
-; f18 = f20
-; f19 = not f15
-; f20 = f18
-; f21 = f19
 ;r1 : f17, f19 : s7
 (defrule r1
+	(declare (salience 50))
 	(fact (id f17)) 
-	(not (fact (id f15)))
+	(fact (id f21))
 	=>
 	(assert (fact (id s7) (name "Работает.")))
 )
 ;r2 : f9 : s6
 (defrule r2
+	(declare (salience 50))
 	(fact (id f9))
 	=>
 	(assert (fact (id s6) (name "Тупой.")))
 )
 ;r3 : f10 : s8
 (defrule r3
+	(declare (salience 50))
 	(fact (id f10))
 	=>
 	(assert (fact (id s8) (name "Влюблённый.")))
 )
 ;r4 : f11, f12 : s1
 (defrule r4
+	(declare (salience 50))
 	(fact (id f11)) 
 	(fact (id f12))
 	=>
@@ -42,12 +40,14 @@
 )
 ;r5 : f8 : s10   
 (defrule r5
+	(declare (salience 50))
 	(fact (id f8))
 	=>
 	(assert (fact (id s10) (name "Родитель.")))
 )
 ;r6 : f6, f21 : s9
 (defrule r6
+	(declare (salience 50))
 	(fact (id f6)) 
 	(fact (id f19))
 	=>
@@ -55,12 +55,14 @@
 )
 ;r7 : f12 : s12
 (defrule r7
+	(declare (salience 50))
 	(fact (id f12)) 
 	=>
 	(assert (fact (id s12) (name "Имеет вредные привычки.")))
 )
 ;r8 : f6, s12 : s13
 (defrule r8
+	(declare (salience 50))
 	(fact (id f6)) 
 	(fact (id s12))
 	=>
@@ -68,6 +70,7 @@
 )
 ;r9 : s1, s7, s10, s13: t1
 (defrule r9
+	(declare (salience 50))
 	(fact (id s1)) 
 	(fact (id s7))
 	(fact (id s10))
@@ -77,6 +80,7 @@
 )
 ;r10 : f6, f13 : s14, s9
 (defrule r10
+	(declare (salience 50))
 	(fact (id f6)) 
 	(fact (id f13))
 	=>
@@ -85,6 +89,7 @@
 )
 ;r11 : s14, s9 : s15
 (defrule r11
+	(declare (salience 50))
 	(fact (id s14)) 
 	(fact (id s9))
 	=>
@@ -92,6 +97,7 @@
 )
 ;r12 : f12, f16 : s16
 (defrule r12
+	(declare (salience 50))
 	(fact (id f12)) 
 	(fact (id f16))
 	=>
@@ -99,6 +105,7 @@
 )
 ;r13 : f15, f17 : s17
 (defrule r13
+	(declare (salience 50))
 	(fact (id f15)) 
 	(fact (id f17))
 	=>
@@ -106,6 +113,7 @@
 )
 ;r14 : s15, s16, s17 : t8
 (defrule r14
+	(declare (salience 50))
 	(fact (id s15)) 
 	(fact (id s16))
 	(fact (id s17))
@@ -114,6 +122,7 @@
 )
 ;r15 : f7, f11 : s2
 (defrule r15
+	(declare (salience 50))
 	(fact (id f7)) 
 	(fact (id f11))
 	=>
@@ -121,14 +130,16 @@
 )
 ;r16 : f18, f19, s2 : s18
 (defrule r16
+	(declare (salience 50))
 	(fact (id s2))
 	(fact (id f20))
-	(not (fact (id f15)))
+	(fact (id f21))
 	=>
 	(assert (fact (id s18) (name "Домохозяйка.")))
 )
 ;r17 : s2, s8, s10, s18 : t2
 (defrule r17
+	(declare (salience 50))
 	(fact (id s2)) 
 	(fact (id s8))
 	(fact (id s10))
@@ -138,6 +149,7 @@
 )
 ;r18 : f4, s12 : s19
 (defrule r18
+	(declare (salience 50))
 	(fact (id f4)) 
 	(fact (id s12))
 	=>
@@ -145,6 +157,7 @@
 )
 ;r19 : f4, f14 : s3
 (defrule r19
+	(declare (salience 50))
 	(fact (id f4)) 
 	(fact (id f14))
 	=>
@@ -152,6 +165,7 @@
 )
 ;r20 : s3, s7, s19 : t7
 (defrule r20
+	(declare (salience 50))
 	(fact (id s3)) 
 	(fact (id s7))
 	(fact (id s19))
@@ -160,6 +174,7 @@
 )
 ;r21 : f14, f6 : s3
 (defrule r21
+	(declare (salience 50))
 	(fact (id f14)) 
 	(fact (id f6))
 	=>
@@ -167,6 +182,7 @@
 )
 ;r22 : s3, s8, s17 : t3
 (defrule r22
+	(declare (salience 50))
 	(fact (id s3)) 
 	(fact (id s8))
 	(fact (id s17))
@@ -175,6 +191,7 @@
 )
 ;r23 : f2, s3, s17 : t9
 (defrule r23
+	(declare (salience 50))
 	(fact (id f2)) 
 	(fact (id s3))
 	(fact (id s17))
@@ -183,6 +200,7 @@
 )
 ;r24 : f2, s8 : s20
 (defrule r24
+	(declare (salience 50))
 	(fact (id f2)) 
 	(fact (id s8))
 	=>
@@ -190,13 +208,15 @@
 )
 ;r25 : f18, f19 : s21
 (defrule r25
+	(declare (salience 50))
 	(fact (id f20))
-	(not (fact (id f15)))
+	(fact (id f21))
 	=>
 	(assert (fact (id s21) (name "Старик.")))
 )
 ;r26 : f12, s21 : s16
 (defrule r26
+	(declare (salience 50))
 	(fact (id f12))
 	(fact (id s21))
 	=>
@@ -204,6 +224,7 @@
 )
 ;r27 : s10, s16, s21 : t6
 (defrule r27
+	(declare (salience 50))
 	(fact (id s10))
 	(fact (id s16))
 	(fact (id s21))
@@ -212,6 +233,7 @@
 )
 ;r28 : f1, f20, s7 : s22
 (defrule r28
+	(declare (salience 50))
 	(fact (id f1))
 	(fact (id f18))
 	(fact (id s7))
@@ -220,6 +242,7 @@
 )
 ;r29 : f2, s10 : s23
 (defrule r29
+	(declare (salience 50))
 	(fact (id f2))
 	(fact (id s10))
 	=>
@@ -227,6 +250,7 @@
 )
 ;r30 : s3, s23, s22 : t10
 (defrule r30
+	(declare (salience 50))
 	(fact (id s3))
 	(fact (id s23))
 	(fact (id s22))
@@ -235,6 +259,7 @@
 )
 ;r31 : f16, s17 : s4
 (defrule r31
+	(declare (salience 50))
 	(fact (id f16))
 	(fact (id s17))
 	=>
@@ -242,6 +267,7 @@
 )
 ;r32 : f20, s4 : s11
 (defrule r32
+	(declare (salience 50))
 	(fact (id f18))
 	(fact (id s4))
 	=>
@@ -249,6 +275,7 @@
 )
 ;r33 : f3, f7, s8, s11 : t4
 (defrule r33
+	(declare (salience 50))
 	(fact (id f3))
 	(fact (id f7))
 	(fact (id s8))
@@ -258,6 +285,7 @@
 )
 ;r34 : f15, f18 : s20
 (defrule r34
+	(declare (salience 50))
 	(fact (id f15))
 	(fact (id f20))
 	=>
@@ -265,6 +293,7 @@
 )
 ;r35 : f9, f13 : s15
 (defrule r35
+	(declare (salience 50))
 	(fact (id f9))
 	(fact (id f13))
 	=>
@@ -272,6 +301,7 @@
 )
 ;r36 : f18, s15, s20 : t5
 (defrule r36
+	(declare (salience 50))
 	(fact (id f20))
 	(fact (id s15))
 	(fact (id s20))
@@ -280,12 +310,14 @@
 )
 ;r37 : f13 : s14
 (defrule r37
+	(declare (salience 50))
 	(fact (id f13))
 	=>
 	(assert (fact (id s14) (name "Доверчив.")))
 )
 ;r38 : f5, f20 : s5
 (defrule r38
+	(declare (salience 50))
 	(fact (id f5))
 	(fact (id f18))
 	=>
@@ -293,6 +325,7 @@
 )
 ;r39 : f3, s5, s14 : s24
 (defrule r39
+	(declare (salience 50))
 	(fact (id f3))
 	(fact (id s5))
 	(fact (id s14))
@@ -301,6 +334,7 @@
 )
 ;r40 : s8, s10, s24 : t11
 (defrule r40
+	(declare (salience 50))
 	(fact (id s8))
 	(fact (id s10))
 	(fact (id s24))
@@ -309,6 +343,7 @@
 )
 ;r41 : s3, s13, s22 : t12
 (defrule r41
+	(declare (salience 50))
 	(fact (id s3))
 	(fact (id s13))
 	(fact (id s22))
@@ -317,6 +352,7 @@
 )
 ;r42 : f20, s7 : s5
 (defrule r42
+	(declare (salience 50))
 	(fact (id f18))
 	(fact (id s7))
 	=>
@@ -324,6 +360,7 @@
 )
 ;r43 : f3, s5, s9 : t13 
 (defrule r43
+	(declare (salience 50))
 	(fact (id f3))
 	(fact (id s5))
 	(fact (id s9))
@@ -332,6 +369,7 @@
 )
 ;r44 : s6, s15 : s20
 (defrule r44
+	(declare (salience 50))
 	(fact (id s6))
 	(fact (id s15))
 	=>
@@ -339,6 +377,7 @@
 )
 ;r45 : f21, s15, s17, s20 : t14
 (defrule r45
+	(declare (salience 50))
 	(fact (id f19))
 	(fact (id s15))
 	(fact (id s17))
@@ -347,13 +386,141 @@
 	(assert (terminal_fact (id t14) (name "Ральф Виггам")))
 )
 
-(defrule isOver18
+(defrule isLess18
 	?answ  <- (answer-user (question "Возраст меньше 18 лет?") (answer ?a))
-	(not (fact (id f20)))	
+	(not (fact (id f21)))	
 	(not (fact (id f15)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f15) (name "Возраст меньше 18 лет."))  ))
-	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Возраст больше 18 лет.")) ))
+	(if (eq ?a "Нет") then (assert (fact (id f21) (name "Возраст больше 18 лет.")) ))
+)
+
+(defrule isProud
+	?answ  <- (answer-user (question "Смотрит на всех свысока?") (answer ?a))
+	(not (fact (id f1)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f1) (name "Смотрит на всех свысока."))  ))
+)
+
+(defrule hasProblemFamily
+	?answ  <- (answer-user (question "Проблемы в семье?") (answer ?a))
+	(not (fact (id f2)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f2) (name "Проблемы в семье."))  ))
+)
+
+(defrule isHelpful
+	?answ  <- (answer-user (question "Всегда готов помочь другому?") (answer ?a))
+	(not (fact (id f3)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f3) (name "Всегда готов помочь другому."))  ))
+)
+
+(defrule isUnpleasant
+	?answ  <- (answer-user (question "Отталкивающий человек?") (answer ?a))
+	(not (fact (id f4)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f4) (name "Отталкивающий человек."))  ))
+)
+
+(defrule hasGoodAppearance
+	?answ  <- (answer-user (question "Заботится о внешнем виде?") (answer ?a))
+	(not (fact (id f5)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f5) (name "Заботится о внешнем виде."))  ))
+)
+
+(defrule hasTrouble
+	?answ  <- (answer-user (question "Часто попадает в неприятности?") (answer ?a))
+	(not (fact (id f6)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f6) (name "Часто попадает в неприятности."))  ))
+)
+
+(defrule hasHobby
+	?answ  <- (answer-user (question "Имеет постоянное хобби?") (answer ?a))
+	(not (fact (id f7)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f7) (name "Имеет постоянное хобби."))  ))
+)
+
+(defrule hasChild
+	?answ  <- (answer-user (question "Есть дети?") (answer ?a))
+	(not (fact (id f8)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f8) (name "Есть дети."))  ))
+)
+
+(defrule isStupid
+	?answ  <- (answer-user (question "Делает вид, что понимает, чем занимается?") (answer ?a))
+	(not (fact (id f9)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f9) (name "Делает вид, что понимает, чем занимается."))  ))
+)
+
+(defrule lovesFamily
+	?answ  <- (answer-user (question "Любит свою семью?") (answer ?a))
+	(not (fact (id f10)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f10) (name "Любит свою семью."))  ))
+)
+
+(defrule lovesKitchen
+	?answ  <- (answer-user (question "Любит проводить время на кухне?") (answer ?a))
+	(not (fact (id f11)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f11) (name "Любит проводить время на кухне."))  ))
+)
+
+(defrule hasBadHealth
+	?answ  <- (answer-user (question "Не заботится о своём здоровье?") (answer ?a))
+	(not (fact (id f12)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f12) (name "Не заботится о своём здоровье."))  ))
+)
+
+(defrule isTrustful
+	?answ  <- (answer-user (question "Готов поверить в любую чушь?") (answer ?a))
+	(not (fact (id f13)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f13) (name "Готов поверить в любую чушь."))  ))
+)
+
+(defrule isMocks
+	?answ  <- (answer-user (question "Смеется над людьми?") (answer ?a))
+	(not (fact (id f14)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f14) (name "Смеется над людьми."))  ))
+)
+
+(defrule likesReading
+	?answ  <- (answer-user (question "Любит читать?") (answer ?a))
+	(not (fact (id f16)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f16) (name "Любит читать."))  ))
+)
+
+(defrule outsideHouse
+	?answ  <- (answer-user (question "Часто выходит из дома?") (answer ?a))
+	(not (fact (id f17)))
+	(not (fact (id f20)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f17) (name "Часто выходит из дома."))  ))
+	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Не часто выходит из дома."))  ))
+)
+
+(defrule isAmbitious
+	?answ  <- (answer-user (question "Целеустремлённый?") (answer ?a))
+	(not (fact (id f18)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f18) (name "Целеустремлённый."))  ))
+)
+
+(defrule isNonConfrontational
+	?answ  <- (answer-user (question "Избегает конфликтов?") (answer ?a))
+	(not (fact (id f19)))
+=>
+	(if (eq ?a "Да") then (assert (fact (id f19) (name "Избегает конфликтов."))  ))
 )
 
 (defrule FoundTerminal
