@@ -392,8 +392,8 @@
 	(not (fact (id f21)))	
 	(not (fact (id f15)))
 =>
-	(if (eq ?a "Да") then (assert (fact (id f15) (name "Возраст меньше 18 лет."))  ))
-	(if (eq ?a "Нет") then (assert (fact (id f21) (name "Возраст больше 18 лет.")) ))
+	(if (eq ?a "Да") then (assert (fact (id f15) (name "Возраст меньше 18 лет.")) ))
+	(if (eq ?a "Нет") then (assert (fact (id f21) (name "Возраст больше 18 лет.")) ) (assert (question-user (question "Есть дети?") (answers "Да" "Нет"))))
 	(retract ?answ)
 )
 
@@ -403,6 +403,7 @@
 	(not (fact (id f1)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f1) (name "Смотрит на всех свысока."))  ))
+	(if (eq ?a "Нет") then (assert 	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))) (assert(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))))
 	(retract ?answ)
 )
 
@@ -430,15 +431,6 @@
 	(not (fact (id f4)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f4) (name "Отталкивающий человек."))  ))
-	(retract ?answ)
-)
-
-(defrule hasGoodAppearance
-	(declare (salience 50))
-	?answ  <- (answer-user (question "Заботится о внешнем виде?") (answer ?a))
-	(not (fact (id f5)))
-=>
-	(if (eq ?a "Да") then (assert (fact (id f5) (name "Заботится о внешнем виде."))  ))
 	(retract ?answ)
 )
 
@@ -475,6 +467,7 @@
 	(not (fact (id f9)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f9) (name "Делает вид, что понимает, чем занимается."))  ))
+	(if (eq ?a "Нет") then (assert (question-user (question "Имеет постоянное хобби?") (answers "Да" "Нет"))))
 	(retract ?answ)
 )
 
@@ -484,6 +477,7 @@
 	(not (fact (id f10)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f10) (name "Любит свою семью."))  ))
+	(if (eq ?a "Нет") then (assert 	(question-user (question "Проблемы в семье?") (answers "Да" "Нет"))))
 	(retract ?answ)
 )
 
@@ -502,6 +496,7 @@
 	(not (fact (id f12)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f12) (name "Не заботится о своём здоровье."))  ))
+	(if (eq ?a "Нет") then (assert (fact (id f5) (name "Заботится о своём здоровье."))  ))
 	(retract ?answ)
 )
 
@@ -520,6 +515,7 @@
 	(not (fact (id f14)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f14) (name "Смеется над людьми."))  ))
+	(if (eq ?a "Нет") then (assert 	(question-user (question "Избегает конфликтов?") (answers "Да" "Нет")) ))
 	(retract ?answ)
 )
 
@@ -538,8 +534,8 @@
 	(not (fact (id f17)))
 	(not (fact (id f20)))
 =>
-	(if (eq ?a "Да") then (assert (fact (id f17) (name "Часто выходит из дома."))  ))
-	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Не часто выходит из дома."))  ))
+	(if (eq ?a "Да") then (assert (fact (id f17) (name "Часто выходит из дома.")) ) (assert (question-user (question "Целеустремлённый?") (answers "Да" "Нет"))) )
+	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Не часто выходит из дома."))) )
 	(retract ?answ)
 )
 
@@ -591,25 +587,17 @@
 )
 
 (deffacts questions
-	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
 	(question-user (question "Часто выходит из дома?") (answers "Да" "Нет"))
-	(question-user (question "Смотрит на всех свысока?") (answers "Да" "Нет"))
-	(question-user (question "Проблемы в семье?") (answers "Да" "Нет"))
-	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))
-	(question-user (question "Отталкивающий человек?") (answers "Да" "Нет"))
-	(question-user (question "Заботится о внешнем виде?") (answers "Да" "Нет"))
-	(question-user (question "Часто попадает в неприятности?") (answers "Да" "Нет"))
-	(question-user (question "Имеет постоянное хобби?") (answers "Да" "Нет"))
-	(question-user (question "Есть дети?") (answers "Да" "Нет"))
-	(question-user (question "Делает вид, что понимает, чем занимается?") (answers "Да" "Нет"))
 	(question-user (question "Любит свою семью?") (answers "Да" "Нет"))
-	(question-user (question "Любит проводить время на кухне?") (answers "Да" "Нет"))
+	(question-user (question "Часто попадает в неприятности?") (answers "Да" "Нет"))
 	(question-user (question "Не заботится о своём здоровье?") (answers "Да" "Нет"))
-	(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))
 	(question-user (question "Смеется над людьми?") (answers "Да" "Нет"))
+	(question-user (question "Делает вид, что понимает, чем занимается?") (answers "Да" "Нет"))
+	(question-user (question "Смотрит на всех свысока?") (answers "Да" "Нет"))
+	(question-user (question "Отталкивающий человек?") (answers "Да" "Нет"))
+	(question-user (question "Любит проводить время на кухне?") (answers "Да" "Нет"))
 	(question-user (question "Любит читать?") (answers "Да" "Нет"))
-	(question-user (question "Целеустремлённый?") (answers "Да" "Нет"))
-	(question-user (question "Избегает конфликтов?") (answers "Да" "Нет"))
+	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
 )
 
 
