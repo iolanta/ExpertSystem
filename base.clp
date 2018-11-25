@@ -17,6 +17,12 @@
 	(multislot answers)
 )
 
+(deftemplate question-user-force 
+	(slot question)
+	(multislot answers)
+)
+
+
 (deftemplate answer-user
 	(slot question)
 	(slot answer)
@@ -106,15 +112,13 @@
 
 (defrule ask-question-force
 	(declare (salience 400))
-	?current-question <- (question-user  (question ?q) (answers $?qvars ))
+	?current-question <- (question-user-force  (question ?q) (answers $?qvars ))
 	?proxy <- (ioproxy (messages $?msg-list))
-	?flag <-(forcequestion)
 	=>
 	(bind ?f (assert (answer-user (question ?q)  )))
     (bind ?i (fact-index ?f))	
 	(modify ?proxy (fact-id ?i) (messages $?msg-list ?q)  (answers $?qvars))
 	(retract ?current-question)
-	(retract ?flag)
 	(printout t "Question asked : " ?q " ... halting ..." crlf)
 	(halt)
 )

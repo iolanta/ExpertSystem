@@ -387,166 +387,206 @@
 )
 
 (defrule isLess18
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Возраст меньше 18 лет?") (answer ?a))
 	(not (fact (id f21)))	
 	(not (fact (id f15)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f15) (name "Возраст меньше 18 лет."))  ))
 	(if (eq ?a "Нет") then (assert (fact (id f21) (name "Возраст больше 18 лет.")) ))
+	(retract ?answ)
 )
 
 (defrule isProud
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Смотрит на всех свысока?") (answer ?a))
 	(not (fact (id f1)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f1) (name "Смотрит на всех свысока."))  ))
+	(retract ?answ)
 )
 
 (defrule hasProblemFamily
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Проблемы в семье?") (answer ?a))
 	(not (fact (id f2)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f2) (name "Проблемы в семье."))  ))
+	(retract ?answ)
 )
 
 (defrule isHelpful
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Всегда готов помочь другому?") (answer ?a))
 	(not (fact (id f3)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f3) (name "Всегда готов помочь другому."))  ))
+	(retract ?answ)
 )
 
 (defrule isUnpleasant
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Отталкивающий человек?") (answer ?a))
 	(not (fact (id f4)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f4) (name "Отталкивающий человек."))  ))
+	(retract ?answ)
 )
 
 (defrule hasGoodAppearance
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Заботится о внешнем виде?") (answer ?a))
 	(not (fact (id f5)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f5) (name "Заботится о внешнем виде."))  ))
+	(retract ?answ)
 )
 
 (defrule hasTrouble
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Часто попадает в неприятности?") (answer ?a))
 	(not (fact (id f6)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f6) (name "Часто попадает в неприятности."))  ))
+	(retract ?answ)
 )
 
 (defrule hasHobby
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Имеет постоянное хобби?") (answer ?a))
 	(not (fact (id f7)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f7) (name "Имеет постоянное хобби."))  ))
+	(retract ?answ)
 )
 
 (defrule hasChild
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Есть дети?") (answer ?a))
 	(not (fact (id f8)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f8) (name "Есть дети."))  ))
+	(retract ?answ)
 )
 
 (defrule isStupid
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Делает вид, что понимает, чем занимается?") (answer ?a))
 	(not (fact (id f9)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f9) (name "Делает вид, что понимает, чем занимается."))  ))
+	(retract ?answ)
 )
 
 (defrule lovesFamily
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Любит свою семью?") (answer ?a))
 	(not (fact (id f10)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f10) (name "Любит свою семью."))  ))
+	(retract ?answ)
 )
 
 (defrule lovesKitchen
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Любит проводить время на кухне?") (answer ?a))
 	(not (fact (id f11)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f11) (name "Любит проводить время на кухне."))  ))
+	(retract ?answ)
 )
 
 (defrule hasBadHealth
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Не заботится о своём здоровье?") (answer ?a))
 	(not (fact (id f12)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f12) (name "Не заботится о своём здоровье."))  ))
+	(retract ?answ)
 )
 
 (defrule isTrustful
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Готов поверить в любую чушь?") (answer ?a))
 	(not (fact (id f13)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f13) (name "Готов поверить в любую чушь."))  ))
+	(retract ?answ)
 )
 
 (defrule isMocks
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Смеется над людьми?") (answer ?a))
 	(not (fact (id f14)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f14) (name "Смеется над людьми."))  ))
+	(retract ?answ)
 )
 
 (defrule likesReading
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Любит читать?") (answer ?a))
 	(not (fact (id f16)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f16) (name "Любит читать."))  ))
+	(retract ?answ)
 )
 
 (defrule outsideHouse
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Часто выходит из дома?") (answer ?a))
 	(not (fact (id f17)))
 	(not (fact (id f20)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f17) (name "Часто выходит из дома."))  ))
 	(if (eq ?a "Нет") then (assert (fact (id f20) (name "Не часто выходит из дома."))  ))
+	(retract ?answ)
 )
 
 (defrule isAmbitious
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Целеустремлённый?") (answer ?a))
 	(not (fact (id f18)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f18) (name "Целеустремлённый."))  ))
+	(retract ?answ)
 )
 
 (defrule isNonConfrontational
+	(declare (salience 50))
 	?answ  <- (answer-user (question "Избегает конфликтов?") (answer ?a))
 	(not (fact (id f19)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f19) (name "Избегает конфликтов."))  ))
+	(retract ?answ)
 )
 
 (defrule IsTerminalAnswer
+	(declare (salience 102))
 	?answ  <- (answer-user (answer ?a))
 	?flag <- (possible-term-found  ?nm )
 =>
 	(retract ?flag)
 	(if (eq ?a "Да") then (assert (result-achieved ?nm) )  )
+	(retract ?answ)
 )
 
 
 (defrule IsResult
-	(declare (salience 300))
+	(declare (salience 102))
 	?res <- (result-achieved ?nm)
 	=>
 	(assert (sendmessagehalt (str-cat "Вывод окончен, результат: " ?nm)))
+	
 	
 )
 
 
 (defrule FoundTerminal
-	(declare (salience 400))
+	(declare (salience 101))
 	?term <- (terminal_fact (id ?id) (name ?nm))
 	=>
-	(assert (question-user (question (str-cat "Это " ?nm "?" )  ) (answers "Да" "Нет")))
-	(assert (forcequestion))
+	(assert (question-user-force (question (str-cat "Это " ?nm "?" )  ) (answers "Да" "Нет")))
 	(assert (possible-term-found  ?nm) )
 )
 
