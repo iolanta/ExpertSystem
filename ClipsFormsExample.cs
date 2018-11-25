@@ -38,18 +38,16 @@ namespace ClipsFormsExample
             MultifieldValue damf = (MultifieldValue)fv["messages"];
             MultifieldValue vamf = (MultifieldValue)fv["answers"];
 
-            textBox1.Text += "Новая итерация : " + System.Environment.NewLine;
+            textBox1.Text += "Новая итерация: " + System.Environment.NewLine;
             for (int i = 0; i < damf.Count; i++)
             {
                 LexemeValue da = (LexemeValue)damf[i];
                 byte[] bytes = Encoding.Default.GetBytes(da.Value);
-                textBox1.Text += Encoding.UTF8.GetString(bytes) + System.Environment.NewLine;
+                textBox1.Text += "Вопрос: " + Encoding.UTF8.GetString(bytes) + System.Environment.NewLine;
             }
 
             if (vamf.Count > 0)
             {
-                textBox1.Text += "----------------------------------------------------" + System.Environment.NewLine;
-
                 List<string> answers = new List<string>();
                 LexemeValue da = (LexemeValue)damf[damf.Count - 1];
                 byte[] bytes = Encoding.Default.GetBytes(da.Value);
@@ -63,6 +61,9 @@ namespace ClipsFormsExample
                 }
                 Dialog df = new Dialog(question, answers);
                 df.ShowDialog(this);
+
+                textBox1.Text += "Ответ: " + answers[answer_index] + System.Environment.NewLine;
+                textBox1.Text += "----------------------------------------------------" + System.Environment.NewLine;
 
                 clips.Eval("(write-answer \"" + answers[answer_index] + "\" )");
             }
