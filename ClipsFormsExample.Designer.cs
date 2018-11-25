@@ -57,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1315, 746);
             this.panel1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -86,7 +86,7 @@
             this.codeBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codeBox.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.codeBox.Location = new System.Drawing.Point(0, 0);
-            this.codeBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.codeBox.Margin = new System.Windows.Forms.Padding(4);
             this.codeBox.Multiline = true;
             this.codeBox.Name = "codeBox";
             this.codeBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -98,7 +98,7 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -114,7 +114,7 @@
             this.panel2.Controls.Add(this.openButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 746);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1317, 66);
             this.panel2.TabIndex = 6;
@@ -122,7 +122,7 @@
             // fontButton
             // 
             this.fontButton.Location = new System.Drawing.Point(352, 15);
-            this.fontButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fontButton.Margin = new System.Windows.Forms.Padding(4);
             this.fontButton.Name = "fontButton";
             this.fontButton.Size = new System.Drawing.Size(160, 37);
             this.fontButton.TabIndex = 9;
@@ -134,7 +134,7 @@
             // 
             this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton.Location = new System.Drawing.Point(1140, 15);
-            this.nextButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(4);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(160, 37);
             this.nextButton.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.Location = new System.Drawing.Point(972, 15);
-            this.resetButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(4);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(160, 37);
             this.resetButton.TabIndex = 7;
@@ -157,7 +157,7 @@
             // saveAsButton
             // 
             this.saveAsButton.Location = new System.Drawing.Point(184, 15);
-            this.saveAsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveAsButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveAsButton.Name = "saveAsButton";
             this.saveAsButton.Size = new System.Drawing.Size(160, 37);
             this.saveAsButton.TabIndex = 6;
@@ -168,7 +168,7 @@
             // openButton
             // 
             this.openButton.Location = new System.Drawing.Point(16, 15);
-            this.openButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.openButton.Margin = new System.Windows.Forms.Padding(4);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(160, 37);
             this.openButton.TabIndex = 5;
@@ -194,10 +194,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(874, 358);
             this.Name = "ExpertSystemForm";
-            this.Text = "Экспертная система \"Тиндер\"";
+            this.Text = "Экспертная система \"Simpsons\"";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
