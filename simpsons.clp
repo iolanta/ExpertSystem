@@ -592,6 +592,7 @@
 
 (deffacts questions
 	(question-user (question "Возраст меньше 18 лет?") (answers "Да" "Нет"))
+	(question-user (question "Часто выходит из дома?") (answers "Да" "Нет"))
 	(question-user (question "Смотрит на всех свысока?") (answers "Да" "Нет"))
 	(question-user (question "Проблемы в семье?") (answers "Да" "Нет"))
 	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))
@@ -607,7 +608,6 @@
 	(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))
 	(question-user (question "Смеется над людьми?") (answers "Да" "Нет"))
 	(question-user (question "Любит читать?") (answers "Да" "Нет"))
-	(question-user (question "Часто выходит из дома?") (answers "Да" "Нет"))
 	(question-user (question "Целеустремлённый?") (answers "Да" "Нет"))
 	(question-user (question "Избегает конфликтов?") (answers "Да" "Нет"))
 )
