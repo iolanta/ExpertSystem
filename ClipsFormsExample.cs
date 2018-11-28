@@ -49,9 +49,17 @@ namespace ClipsFormsExample
             if (vamf.Count > 0)
             {
                 List<string> answers = new List<string>();
-                LexemeValue da = (LexemeValue)damf[damf.Count - 1];
-                byte[] bytes = Encoding.Default.GetBytes(da.Value);
-                string question = Encoding.UTF8.GetString(bytes) + System.Environment.NewLine;
+                LexemeValue da;
+                string question;
+                byte[] bytes;
+                if (damf.Count != 0)
+                {
+                    da = (LexemeValue)damf[damf.Count - 1];
+                    bytes = Encoding.Default.GetBytes(da.Value);
+                    question = Encoding.UTF8.GetString(bytes) + System.Environment.NewLine;
+                }
+                else
+                    question = "";
                 
                 for (int i = 0; i < vamf.Count; i++) 
                 {
@@ -66,12 +74,16 @@ namespace ClipsFormsExample
                 textBox1.Text += "----------------------------------------------------" + System.Environment.NewLine;
 
                 clips.Eval("(write-answer \"" + answers[answer_index] + "\" )");
+                clips.Eval("(assert (clearmessage))");
+                clips.Run();
+                HandleResponse();
             }
 
 
-
+            
             clips.Eval("(assert (clearmessage))");
             
+
         }
 
     private void nextBtn_Click(object sender, EventArgs e)

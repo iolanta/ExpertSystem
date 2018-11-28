@@ -138,5 +138,12 @@
 	(halt)
 )
 
+(defrule dead-end
+	(declare (salience -200))
+	?proxy <- (ioproxy (messages $?msg-list))
+	=>
+	(assert (sendmessagehalt "Вывод окончен, результата нет"))
+)
+
 
 

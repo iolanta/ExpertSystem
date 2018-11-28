@@ -403,7 +403,7 @@
 	(not (fact (id f1)))
 =>
 	(if (eq ?a "Да") then (assert (fact (id f1) (name "Смотрит на всех свысока."))  ))
-	(if (eq ?a "Нет") then (assert 	(question-user (question "Всегда готов помочь другому?") (answers "Да" "Нет"))) (assert(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))))
+	(if (eq ?a "Нет") then (assert 	(question-user-force (question "Всегда готов помочь другому?") (answers "Да" "Нет"))) (assert(question-user (question "Готов поверить в любую чушь?") (answers "Да" "Нет"))))
 	(retract ?answ)
 )
 
